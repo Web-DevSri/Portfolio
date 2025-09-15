@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            transition: background-color 0.5s ease;
+        }
+
+        .navbar,
+        .footer {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 60px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .tube {
+            height: 350px;
+            width: 35px;
+            border-radius: 10px;
+            background-color: red;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+        .card-1{
+           background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+        .card-2{
+           background-image: url(https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+        .card-3{
+           background-image: url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+        .card-4{
+           background-image: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80);
+           background-size: cover;
+        }
+        .card-5{
+           background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80);
+           background-size: cover;
+        }
+        .card-6{
+           background-image: url(https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+
+        .tube:hover {
+            transform: translateY(-15px);
+        }
+
+        .tubes {
+            position: relative;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Main Section Styling */
+        section {
+            display: grid;
+            grid-template-rows: 60px 1fr 60px;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Layers */
+        .bg-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bg-default {
+            background-color: #000;
+            opacity: 1;
+        }
+
+        .bg-overlay {
+            opacity: 0;
+        }
+
+        /* Preloader (hidden) */
+        .image-preloader {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        /* Specific hover effect for card-1 */
+
+        .card-1::after, .card-2::after, .card-3::after, .card-4::after, .card-5::after, .card-6::after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 5px;
+            border: 2px solid #ffffff;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        
+        .card-1::before {
+            content: "View Project";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-25px);
+            width: 189px;
+            left: -1em;
+        }
+
+                .card-2::before {
+            content: "View Project";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-25px);
+            width: 189px;
+            left: -1em;
+        }
+
+                .card-3::before {
+            content: "View Project";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-25px);
+            width: 189px;
+            left: -1em;
+        }
+
+                .card-4::before {
+            content: "View Project";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-25px);
+            width: 189px;
+            left: -1em;
+        }
+
+                .card-5::before {
+            content: "View Project";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-25px);
+            width: 189px;
+            left: -1em;
+        }
+
+                .card-6::before {
+            content: "View Project";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-25px);
+            width: 189px;
+            left: -1em;
+        }
+
+        
+
+        .card-1:hover::before, .card-2:hover::before, .card-3:hover::before, .card-4:hover::before, .card-5:hover::before, .card-6:hover::before {
+            opacity: 1;
+            transform: translateY(-35px);
+        }
+
+        .card-1:hover::after, .card-2:hover::after, .card-3:hover::after, .card-4:hover::after, .card-5:hover::after, .card-6:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="cursor">
+        <div class="cursor__ball cursor__ball--big ">
+            <svg height="30" width="30">
+            <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+        </div>
+        
+        <div class="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+            <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Preload images -->
+    <div class="image-preloader" id="image-preloader"></div>
+
+    <section id="main-section">
+        <!-- Background layers -->
+        <div class="bg-layer bg-default"></div>
+        <div class="bg-layer bg-overlay" id="bg-overlay"></div>
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <span>Name</span>
+            <span>
+                <span>one thing</span>
+                <span>two thing</span>
+                <span>three thing</span>
+            </span>
+            <span>Contact</span>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="tubes">
+                <span class="tube card-1" data-bg="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-2" data-bg="https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-3" data-bg="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-4" data-bg="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80"></span>
+                <span class="tube card-5" data-bg="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80"></span>
+                <span class="tube card-6" data-bg="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <div class="footer"></div>
+    </section>
+
+    <script>
+        // Image URLs mapped to cards
+        const cardBackgrounds = {
+            'card-1': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+            'card-2': 'https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+            'card-3': 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+            'card-4': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80',
+            'card-5': 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80',
+            'card-6': 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+        };
+
+        // DOM Elements
+        const section = document.getElementById('main-section');
+        const bgOverlay = document.getElementById('bg-overlay');
+        const preloader = document.getElementById('image-preloader');
+        let currentTimeout = null;
+
+        // Preload all images
+        function preloadImages() {
+            Object.values(cardBackgrounds).forEach(url => {
+                const img = new Image();
+                img.src = url;
+                preloader.appendChild(img);
+            });
+        }
+
+        // Fade in background smoothly
+        function fadeInBackground(imageUrl) {
+            // Clear any existing timeout
+            if (currentTimeout) clearTimeout(currentTimeout);
+            
+            // Set the background image
+            bgOverlay.style.backgroundImage = `url('${imageUrl}')`;
+            
+            // Small delay before showing for better UX
+            currentTimeout = setTimeout(() => {
+                bgOverlay.style.opacity = '0.2';
+            }, 100);
+        }
+
+        // Fade out background smoothly
+        function fadeOutBackground() {
+            // Clear any existing timeout
+            if (currentTimeout) clearTimeout(currentTimeout);
+            
+            // Start fade out
+            bgOverlay.style.opacity = '0';
+            
+            // Optional: Clear background image after fade out
+            currentTimeout = setTimeout(() => {
+                bgOverlay.style.backgroundImage = '';
+            }, 800); // Match CSS transition duration
+        }
+
+        // Add event listeners to all tubes
+        document.querySelectorAll('.tube').forEach(tube => {
+            tube.addEventListener('mouseenter', () => {
+                const bgUrl = tube.getAttribute('data-bg');
+                if (bgUrl) {
+                    fadeInBackground(bgUrl);
+                }
+            });
+
+            tube.addEventListener('mouseleave', () => {
+                // Only fade out if no other card is being hovered
+                setTimeout(() => {
+                    const hoveredCards = document.querySelectorAll('.tube:hover');
+                    if (hoveredCards.length === 0) {
+                        fadeOutBackground();
+                    }
+                }, 50); // Small delay to check if another card is being hovered
+            });
+        });
+
+        // Initialize
+        preloadImages();
+
+        // Handle case when mouse leaves the entire section
+        section.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                const hoveredCards = document.querySelectorAll('.tube:hover');
+                if (hoveredCards.length === 0) {
+                    fadeOutBackground();
+                }
+            }, 50);
+        });
+    </script>
+</body>
+</html>

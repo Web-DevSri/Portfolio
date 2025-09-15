@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            transition: background-color 0.5s ease;
+            cursor: none; /* Hide default cursor */
+        }
+
+        .navbar,
+        .footer {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 60px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .tube {
+            height: 350px;
+            width: 35px;
+            border-radius: 10px;
+            background-color: red;
+            transition: transform 0.5s ease;
+            cursor: none; /* Hide default cursor */
+            position: relative;
+        }
+
+        .card-1{
+           background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+        .card-2{
+           background-image: url(https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+        .card-3{
+           background-image: url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+        .card-4{
+           background-image: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80);
+           background-size: cover;
+        }
+        .card-5{
+           background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80);
+           background-size: cover;
+        }
+        .card-6{
+           background-image: url(https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+           background-size: cover;
+        }
+
+        .tube:hover {
+            transform: translateY(-15px);
+        }
+
+        .tubes {
+            position: relative;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Main Section Styling */
+        section {
+            display: grid;
+            grid-template-rows: 60px 1fr 60px;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Layers */
+        .bg-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bg-default {
+            background-color: #000;
+            opacity: 1;
+        }
+
+        .bg-overlay {
+            opacity: 0;
+        }
+
+        /* Preloader (hidden) */
+        .image-preloader {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        /* Hover indicators */
+        .card-1::after, .card-2::after, .card-3::after, .card-4::after, .card-5::after, .card-6::after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 5px;
+            border: 2px solid #ffffff;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tube::before {
+            content: "View Project";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-25px);
+            width: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-25px);
+            text-align: center;
+        }
+
+        .card-1:hover::before, .card-2:hover::before, .card-3:hover::before, .card-4:hover::before, .card-5:hover::before, .card-6:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-35px);
+        }
+
+        .card-1:hover::after, .card-2:hover::after, .card-3:hover::after, .card-4:hover::after, .card-5:hover::after, .card-6:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Custom Cursor Styles */
+        .cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+        }
+
+        .cursor__ball {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            will-change: transform;
+        }
+
+        .cursor__ball circle {
+            fill: #f7f8fa;
+        }
+
+        .cursor__ball--big {
+            transition: transform 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .cursor__ball--small {
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cursor-hover .cursor__ball--big {
+            transform: translate(-50%, -50%) scale(4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor">
+        <div class="cursor__ball cursor__ball--big">
+            <svg height="30" width="30">
+                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+        </div>
+        
+        <div class="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Preload images -->
+    <div class="image-preloader" id="image-preloader"></div>
+
+    <section id="main-section">
+        <!-- Background layers -->
+        <div class="bg-layer bg-default"></div>
+        <div class="bg-layer bg-overlay" id="bg-overlay"></div>
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <span>Name</span>
+            <span>
+                <span>one thing</span>
+                <span>two thing</span>
+                <span>three thing</span>
+            </span>
+            <span>Contact</span>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="tubes">
+                <span class="tube card-1" data-bg="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-2" data-bg="https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-3" data-bg="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-4" data-bg="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80"></span>
+                <span class="tube card-5" data-bg="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80"></span>
+                <span class="tube card-6" data-bg="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <div class="footer"></div>
+    </section>
+
+    <script>
+        // Image URLs mapped to cards
+        const cardBackgrounds = {
+            'card-1': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+            'card-2': 'https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+            'card-3': 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+            'card-4': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80',
+            'card-5': 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80',
+            'card-6': 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+        };
+
+        // DOM Elements
+        const section = document.getElementById('main-section');
+        const bgOverlay = document.getElementById('bg-overlay');
+        const preloader = document.getElementById('image-preloader');
+        let currentTimeout = null;
+
+        // Preload all images
+        function preloadImages() {
+            Object.values(cardBackgrounds).forEach(url => {
+                const img = new Image();
+                img.src = url.trim(); // Remove extra spaces
+                preloader.appendChild(img);
+            });
+        }
+
+        // Fade in background smoothly
+        function fadeInBackground(imageUrl) {
+            // Clear any existing timeout
+            if (currentTimeout) clearTimeout(currentTimeout);
+            
+            // Set the background image
+            bgOverlay.style.backgroundImage = `url('${imageUrl.trim()}')`;
+            
+            // Small delay before showing for better UX
+            currentTimeout = setTimeout(() => {
+                bgOverlay.style.opacity = '0.2';
+            }, 100);
+        }
+
+        // Fade out background smoothly
+        function fadeOutBackground() {
+            // Clear any existing timeout
+            if (currentTimeout) clearTimeout(currentTimeout);
+            
+            // Start fade out
+            bgOverlay.style.opacity = '0';
+            
+            // Optional: Clear background image after fade out
+            currentTimeout = setTimeout(() => {
+                bgOverlay.style.backgroundImage = '';
+            }, 800); // Match CSS transition duration
+        }
+
+        // Add event listeners to all tubes
+        document.querySelectorAll('.tube').forEach(tube => {
+            tube.addEventListener('mouseenter', () => {
+                const bgUrl = tube.getAttribute('data-bg');
+                if (bgUrl) {
+                    fadeInBackground(bgUrl);
+                }
+            });
+
+            tube.addEventListener('mouseleave', () => {
+                // Only fade out if no other card is being hovered
+                setTimeout(() => {
+                    const hoveredCards = document.querySelectorAll('.tube:hover');
+                    if (hoveredCards.length === 0) {
+                        fadeOutBackground();
+                    }
+                }, 50); // Small delay to check if another card is being hovered
+            });
+        });
+
+        // Initialize
+        preloadImages();
+
+        // Handle case when mouse leaves the entire section
+        section.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                const hoveredCards = document.querySelectorAll('.tube:hover');
+                if (hoveredCards.length === 0) {
+                    fadeOutBackground();
+                }
+            }, 50);
+        });
+
+        // Custom Cursor Implementation
+        class SmoothCustomCursor {
+            constructor() {
+                // DOM Elements
+                this.cursor = document.querySelector('.cursor');
+                this.bigBall = document.querySelector('.cursor__ball--big');
+                this.smallBall = document.querySelector('.cursor__ball--small');
+                this.hoverables = document.querySelectorAll('.tube, .navbar span, .footer span, a');
+                
+                // Position tracking
+                this.mouseX = 0;
+                this.mouseY = 0;
+                this.cursorX = 0;
+                this.cursorY = 0;
+                
+                // Performance optimization
+                this.isTicking = false;
+                this.rafId = null;
+                this.isAnimating = false;
+                
+                // Initialize
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.startAnimation();
+            }
+            
+            bindEvents() {
+                // Mouse move with throttling for performance
+                document.addEventListener('mousemove', (e) => {
+                    this.mouseX = e.clientX;
+                    this.mouseY = e.clientY;
+                    
+                    // Throttle updates using requestAnimationFrame
+                    if (!this.isTicking) {
+                        this.rafId = requestAnimationFrame(() => {
+                            this.updatePosition();
+                            this.isTicking = false;
+                        });
+                        this.isTicking = true;
+                    }
+                });
+                
+                // Hover events for interactive elements
+                this.hoverables.forEach(element => {
+                    element.addEventListener('mouseenter', () => {
+                        this.cursor.classList.add('cursor-hover');
+                    });
+                    
+                    element.addEventListener('mouseleave', () => {
+                        this.cursor.classList.remove('cursor-hover');
+                    });
+                });
+                
+                // Handle page visibility for performance
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        this.stopAnimation();
+                    } else {
+                        this.startAnimation();
+                    }
+                });
+                
+                // Handle window blur/focus
+                window.addEventListener('blur', () => {
+                    this.stopAnimation();
+                });
+                
+                window.addEventListener('focus', () => {
+                    this.startAnimation();
+                });
+            }
+            
+            updatePosition() {
+                // Smooth interpolation for big ball (creates trailing effect)
+                this.cursorX += (this.mouseX - this.cursorX) * 0.15;
+                this.cursorY += (this.mouseY - this.cursorY) * 0.15;
+                
+                // Direct positioning for small ball (fast response)
+                this.smallBall.style.transform = `translate(${this.mouseX - 5}px, ${this.mouseY - 5}px)`;
+            }
+            
+            animate() {
+                // Update big ball position with smooth follow
+                this.bigBall.style.transform = `translate(${this.cursorX - 5}px, ${this.cursorY - 5}px)`;
+                
+                // Continue animation loop
+                this.rafId = requestAnimationFrame(() => this.animate());
+            }
+            
+            startAnimation() {
+                if (!this.isAnimating) {
+                    this.isAnimating = true;
+                    this.animate();
+                }
+            }
+            
+            stopAnimation() {
+                if (this.rafId) {
+                    cancelAnimationFrame(this.rafId);
+                    this.isAnimating = false;
+                }
+            }
+        }
+        
+        // Initialize cursor when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new SmoothCustomCursor();
+            });
+        } else {
+            new SmoothCustomCursor();
+        }
+    </script>
+</body>
+</html>
