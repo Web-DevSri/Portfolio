@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hari's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,9 +17,13 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Josefin Sans", sans-serif;
             background-color: #000;
             transition: background-color 0.5s ease;
+            cursor: none;
+            font-optical-sizing: auto;
+            overflow-x: hidden;
+            position: relative;
         }
 
         .navbar,
@@ -40,32 +49,38 @@
             border-radius: 10px;
             background-color: red;
             transition: transform 0.5s ease;
-            cursor: pointer;
+            cursor: none;
+            position: relative;
         }
 
-        .card-1{
-           background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+        .card-1 {
+            background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+            background-size: cover;
         }
-        .card-2{
-           background-image: url(https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+
+        .card-2 {
+            background-image: url(https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80);
+            background-size: cover;
         }
-        .card-3{
-           background-image: url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+
+        .card-3 {
+            background-image: url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+            background-size: cover;
         }
-        .card-4{
-           background-image: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80);
-           background-size: cover;
+
+        .card-4 {
+            background-image: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80);
+            background-size: cover;
         }
-        .card-5{
-           background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80);
-           background-size: cover;
+
+        .card-5 {
+            background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80);
+            background-size: cover;
         }
-        .card-6{
-           background-image: url(https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+
+        .card-6 {
+            background-image: url(https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+            background-size: cover;
         }
 
         .tube:hover {
@@ -95,7 +110,8 @@
             background-position: center;
             z-index: -1;
             opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1);
         }
 
         .bg-default {
@@ -116,9 +132,13 @@
             z-index: -1;
         }
 
-        /* Specific hover effect for card-1 */
-
-        .card-1::after, .card-2::after, .card-3::after, .card-4::after, .card-5::after, .card-6::after {
+        /* Hover indicators */
+        .card-1::after,
+        .card-2::after,
+        .card-3::after,
+        .card-4::after,
+        .card-5::after,
+        .card-6::after {
             content: "";
             position: absolute;
             height: 5px;
@@ -132,8 +152,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        
-        .card-1::before {
+        .tube::before {
             content: "View Project";
             position: absolute;
             color: white;
@@ -141,96 +160,305 @@
             opacity: 0;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateY(-25px);
-            width: 189px;
-            left: -1em;
+            width: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-25px);
+            text-align: center;
         }
 
-                .card-2::before {
-            content: "View Project";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 189px;
-            left: -1em;
-        }
-
-                .card-3::before {
-            content: "View Project";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 189px;
-            left: -1em;
-        }
-
-                .card-4::before {
-            content: "View Project";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 189px;
-            left: -1em;
-        }
-
-                .card-5::before {
-            content: "View Project";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 189px;
-            left: -1em;
-        }
-
-                .card-6::before {
-            content: "View Project";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 189px;
-            left: -1em;
-        }
-
-        
-
-        .card-1:hover::before, .card-2:hover::before, .card-3:hover::before, .card-4:hover::before, .card-5:hover::before, .card-6:hover::before {
+        .card-1:hover::before,
+        .card-2:hover::before,
+        .card-3:hover::before,
+        .card-4:hover::before,
+        .card-5:hover::before,
+        .card-6:hover::before {
             opacity: 1;
-            transform: translateY(-35px);
+            transform: translateX(-50%) translateY(-35px);
         }
 
-        .card-1:hover::after, .card-2:hover::after, .card-3:hover::after, .card-4:hover::after, .card-5:hover::after, .card-6:hover::after {
+        .card-1:hover::after,
+        .card-2:hover::after,
+        .card-3:hover::after,
+        .card-4:hover::after,
+        .card-5:hover::after,
+        .card-6:hover::after {
             opacity: 1;
             transform: translateX(-50%) scale(1);
         }
-        
+
+        /* Custom Cursor Styles */
+        .cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+        }
+
+        .cursor__ball {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            will-change: transform;
+        }
+
+        .cursor__ball circle {
+            fill: #f7f8fa;
+        }
+
+        .cursor__ball--big {
+            transition: transform 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .cursor__ball--small {
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cursor-hover .cursor__ball--big {
+            transform: translate(-50%, -50%) scale(4);
+        }
+
+        /* Button Styles */
+        .hidBtn, .close {
+            display: none;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.7));
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: absolute;
+            z-index: 1001;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .hidBtn:hover, .close:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 1), rgba(139, 195, 74, 0.9));
+            transform: translateY(0) scale(1.05);
+            box-shadow: 0 12px 40px rgba(76, 175, 80, 0.4);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .close {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            padding: 0;
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.9), rgba(244, 67, 54, 0.7));
+        }
+
+        .close:hover {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 1), rgba(229, 57, 53, 0.9));
+            box-shadow: 0 12px 40px rgba(244, 67, 54, 0.4);
+        }
+
+        /* Enhanced tube transitions */
+        .tube {
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: center bottom;
+        }
+
+        /* Expanded state with smooth animations */
+        .tube.expanded {
+            width: 600px;
+            height: 520px;
+            position: absolute;
+            z-index: 999;
+            left: -73%;
+            bottom: -25%;
+            top: -21%;
+            background-position: center;
+            border-radius: 15px;
+            transform: scale(1) rotateY(0deg);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .tube.expanded::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.1) 0%, 
+                rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .tube.expanded:hover::before {
+            opacity: 1;
+        }
+
+        .tube.expanded .hidBtn {
+            display: block;
+            bottom: 20%;
+            left: 10%;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 0.3s;
+        }
+
+        /* Fullscreen state with cinematic transition */
+        .tube.fullscreen {
+            position: fixed !important;
+            width: 100% !important;
+            height: 100vh !important;
+            left: 0 !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+            transform: scale(1) !important;
+            border-radius: 0 !important;
+            transition: all 1s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            box-shadow: none !important;
+        }
+
+        .tube.fullscreen::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(0, 0, 0, 0.2) 0%, 
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 0, 0.2) 100%);
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        .tube.fullscreen .close {
+            display: block;
+            top: 30px;
+            right: 30px;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 0.5s;
+        }
+
+        /* Loading animation for state changes */
+        .tube.transitioning {
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .tube.transitioning::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            margin: -20px 0 0 -20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 1002;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced hover effects */
+        .tube:not(.expanded):not(.fullscreen):hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Staggered animation for multiple cards */
+        .tube:nth-child(1) { transition-delay: 0ms; }
+        .tube:nth-child(2) { transition-delay: 50ms; }
+        .tube:nth-child(3) { transition-delay: 100ms; }
+        .tube:nth-child(4) { transition-delay: 150ms; }
+        .tube:nth-child(5) { transition-delay: 200ms; }
+        .tube:nth-child(6) { transition-delay: 250ms; }
+
+        /* Floating animation for buttons */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.02); }
+        }
+
+        .tube.expanded .hidBtn:hover {
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .tube.fullscreen .close:hover {
+            animation: float 1.5s ease-in-out infinite;
+        }
+
+        /* Backdrop blur effect for fullscreen */
+        .tube.fullscreen {
+            backdrop-filter: blur(20px);
+        }
+
+        /* Glowing effect on expansion */
+        .tube.expanded {
+            position: relative;
+        }
+
+        .tube.expanded::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, 
+                rgba(76, 175, 80, 0.3),
+                rgba(33, 150, 243, 0.3),
+                rgba(156, 39, 176, 0.3),
+                rgba(255, 152, 0, 0.3));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            filter: blur(10px);
+        }
+
+        .tube.expanded:hover::after {
+            opacity: 1;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { filter: blur(10px) brightness(1); }
+            100% { filter: blur(15px) brightness(1.2); }
+        }
     </style>
 </head>
-<body>
 
+<body>
+    <!-- Custom Cursor -->
     <div class="cursor">
-        <div class="cursor__ball cursor__ball--big ">
+        <div class="cursor__ball cursor__ball--big">
             <svg height="30" width="30">
-            <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
             </svg>
         </div>
-        
+
         <div class="cursor__ball cursor__ball--small">
             <svg height="10" width="10">
-            <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
             </svg>
         </div>
     </div>
@@ -257,12 +485,36 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="tubes">
-                <span class="tube card-1" data-bg="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
-                <span class="tube card-2" data-bg="https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"></span>
-                <span class="tube card-3" data-bg="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
-                <span class="tube card-4" data-bg="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80"></span>
-                <span class="tube card-5" data-bg="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80"></span>
-                <span class="tube card-6" data-bg="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-1"
+                    data-bg="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-2"
+                    data-bg="https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80">
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-3"
+                    data-bg="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">                    
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-4"
+                    data-bg="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80">
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-5"
+                    data-bg="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80">
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-6"
+                    data-bg="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
             </div>
         </main>
 
@@ -291,61 +543,166 @@
         function preloadImages() {
             Object.values(cardBackgrounds).forEach(url => {
                 const img = new Image();
-                img.src = url;
+                img.src = url.trim();
                 preloader.appendChild(img);
             });
         }
 
-        // Fade in background smoothly
+        // Enhanced background transitions
         function fadeInBackground(imageUrl) {
-            // Clear any existing timeout
             if (currentTimeout) clearTimeout(currentTimeout);
-            
-            // Set the background image
-            bgOverlay.style.backgroundImage = `url('${imageUrl}')`;
-            
-            // Small delay before showing for better UX
+
+            bgOverlay.style.backgroundImage = `url('${imageUrl.trim()}')`;
+            bgOverlay.style.transform = 'scale(1.05)';
+
             currentTimeout = setTimeout(() => {
-                bgOverlay.style.opacity = '0.2';
-            }, 100);
+                bgOverlay.style.opacity = '0.3';
+                bgOverlay.style.transform = 'scale(1)';
+            }, 50);
         }
 
-        // Fade out background smoothly
         function fadeOutBackground() {
-            // Clear any existing timeout
             if (currentTimeout) clearTimeout(currentTimeout);
-            
-            // Start fade out
+
             bgOverlay.style.opacity = '0';
-            
-            // Optional: Clear background image after fade out
+            bgOverlay.style.transform = 'scale(1.02)';
+
             currentTimeout = setTimeout(() => {
                 bgOverlay.style.backgroundImage = '';
-            }, 800); // Match CSS transition duration
+                bgOverlay.style.transform = 'scale(1)';
+            }, 800);
         }
 
-        // Add event listeners to all tubes
+        // Card state management with smooth transitions
+        function resetCardToDefault(card) {
+            // Add transition class
+            card.classList.add('transitioning');
+            
+            // Animate buttons out first
+            const hidBtn = card.querySelector('.hidBtn');
+            const closeBtn = card.querySelector('.close');
+            
+            if (hidBtn.style.display !== 'none') {
+                hidBtn.style.opacity = '0';
+                hidBtn.style.transform = 'translateY(20px) scale(0.9)';
+            }
+            
+            if (closeBtn.style.display !== 'none') {
+                closeBtn.style.opacity = '0';
+                closeBtn.style.transform = 'translateY(20px) scale(0.9)';
+            }
+            
+            // Wait for button animation, then reset card
+            setTimeout(() => {
+                card.classList.remove('expanded', 'fullscreen');
+                card.style.cssText = '';
+                hidBtn.style.display = 'none';
+                closeBtn.style.display = 'none';
+                
+                // Remove transition class after animation
+                setTimeout(() => {
+                    card.classList.remove('transitioning');
+                }, 100);
+            }, 200);
+        }
+
+        function expandCard(card) {
+            // Add transition class
+            card.classList.add('transitioning');
+            
+            // Expand card first
+            card.classList.add('expanded');
+            
+            // Show button with delay for smooth appearance
+            setTimeout(() => {
+                const hidBtn = card.querySelector('.hidBtn');
+                hidBtn.style.display = 'block';
+                
+                // Trigger animation
+                setTimeout(() => {
+                    hidBtn.style.opacity = '1';
+                    hidBtn.style.transform = 'translateY(0) scale(1)';
+                }, 50);
+                
+                card.classList.remove('transitioning');
+            }, 300);
+        }
+
+        function makeCardFullscreen(card) {
+            const hidBtn = card.querySelector('.hidBtn');
+            const closeBtn = card.querySelector('.close');
+            
+            // Animate out expand button
+            hidBtn.style.opacity = '0';
+            hidBtn.style.transform = 'translateY(20px) scale(0.9)';
+            
+            setTimeout(() => {
+                card.classList.remove('expanded');
+                card.classList.add('fullscreen');
+                hidBtn.style.display = 'none';
+                closeBtn.style.display = 'block';
+                
+                // Show close button with delay
+                setTimeout(() => {
+                    closeBtn.style.opacity = '1';
+                    closeBtn.style.transform = 'translateY(0) scale(1)';
+                }, 500);
+            }, 200);
+        }
+
+        // Initialize
+        preloadImages();
+
+        // Add event listeners to all tubes for hover effects
         document.querySelectorAll('.tube').forEach(tube => {
             tube.addEventListener('mouseenter', () => {
                 const bgUrl = tube.getAttribute('data-bg');
-                if (bgUrl) {
+                if (bgUrl && !tube.classList.contains('expanded') && !tube.classList.contains('fullscreen')) {
                     fadeInBackground(bgUrl);
                 }
             });
 
             tube.addEventListener('mouseleave', () => {
-                // Only fade out if no other card is being hovered
                 setTimeout(() => {
                     const hoveredCards = document.querySelectorAll('.tube:hover');
                     if (hoveredCards.length === 0) {
                         fadeOutBackground();
                     }
-                }, 50); // Small delay to check if another card is being hovered
+                }, 50);
             });
         });
 
-        // Initialize
-        preloadImages();
+        // Add click event listeners to all cards
+        document.querySelectorAll('.tube').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking on buttons
+                if (e.target.classList.contains('hidBtn') || e.target.classList.contains('close')) {
+                    return;
+                }
+
+                if (this.classList.contains('expanded') || this.classList.contains('fullscreen')) {
+                    // Reset to default state
+                    resetCardToDefault(this);
+                } else {
+                    // Expand card
+                    expandCard(this);
+                }
+            });
+
+            // Add event listener to "Know More" button
+            const hidBtn = card.querySelector('.hidBtn');
+            hidBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                makeCardFullscreen(card);
+            });
+
+            // Add event listener to close button
+            const closeBtn = card.querySelector('.close');
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                resetCardToDefault(card);
+            });
+        });
 
         // Handle case when mouse leaves the entire section
         section.addEventListener('mouseleave', () => {
@@ -356,6 +713,110 @@
                 }
             }, 50);
         });
+
+        // Custom Cursor Implementation
+        class SmoothCustomCursor {
+            constructor() {
+                this.cursor = document.querySelector('.cursor');
+                this.bigBall = document.querySelector('.cursor__ball--big');
+                this.smallBall = document.querySelector('.cursor__ball--small');
+                this.hoverables = document.querySelectorAll('.tube, .navbar span, .footer span, a, .hidBtn, .close');
+
+                this.mouseX = 0;
+                this.mouseY = 0;
+                this.cursorX = 0;
+                this.cursorY = 0;
+
+                this.isTicking = false;
+                this.rafId = null;
+                this.isAnimating = false;
+
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.startAnimation();
+            }
+
+            bindEvents() {
+                document.addEventListener('mousemove', (e) => {
+                    this.mouseX = e.clientX;
+                    this.mouseY = e.clientY;
+
+                    if (!this.isTicking) {
+                        this.rafId = requestAnimationFrame(() => {
+                            this.updatePosition();
+                            this.isTicking = false;
+                        });
+                        this.isTicking = true;
+                    }
+                });
+
+                this.hoverables.forEach(element => {
+                    element.addEventListener('mouseenter', () => {
+                        this.cursor.classList.add('cursor-hover');
+                    });
+
+                    element.addEventListener('mouseleave', () => {
+                        this.cursor.classList.remove('cursor-hover');
+                    });
+                });
+
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        this.stopAnimation();
+                    } else {
+                        this.startAnimation();
+                    }
+                });
+
+                window.addEventListener('blur', () => {
+                    this.stopAnimation();
+                });
+
+                window.addEventListener('focus', () => {
+                    this.startAnimation();
+                });
+            }
+
+            updatePosition() {
+                this.cursorX += (this.mouseX - this.cursorX) * 0.15;
+                this.cursorY += (this.mouseY - this.cursorY) * 0.15;
+
+                this.smallBall.style.transform = `translate(${this.mouseX - 5}px, ${this.mouseY - 5}px)`;
+            }
+
+            animate() {
+                this.bigBall.style.transform = `translate(${this.cursorX - 15}px, ${this.cursorY - 15}px)`;
+
+                this.rafId = requestAnimationFrame(() => this.animate());
+            }
+
+            startAnimation() {
+                if (!this.isAnimating) {
+                    this.isAnimating = true;
+                    this.animate();
+                }
+            }
+
+            stopAnimation() {
+                if (this.rafId) {
+                    cancelAnimationFrame(this.rafId);
+                    this.isAnimating = false;
+                }
+            }
+        }
+
+        // Initialize cursor when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new SmoothCustomCursor();
+            });
+        } else {
+            new SmoothCustomCursor();
+        }
     </script>
 </body>
+
 </html>

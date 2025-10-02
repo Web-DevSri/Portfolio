@@ -6,7 +6,7 @@
     <title>Hari's Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Italiana&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,15 +14,24 @@
             box-sizing: border-box;
         }
 
+        .title-font{
+            font-family: "Italiana", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: white;
+            mix-blend-mode: difference;
+        }
+
         body {
-            font-family: "Josefin Sans", sans-serif;
+            font-family: "Antic Didone", serif;
+            font-weight: 400;
+            font-style: normal;
             background-color: #000;
             transition: background-color 0.5s ease;
-            cursor: none;
+            /* cursor: none; */
             font-optical-sizing: auto;
             overflow-x: hidden;
             position: relative;
-
         }
 
         .navbar,
@@ -49,35 +58,67 @@
             background-color: red;
             transition: transform 0.5s ease;
             cursor: none;
+            position: relative;
         }
 
-        .card-1{
-           background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+        .small{
+            color: #efdcdc;
         }
-        .card-2{
-           background-image: url(https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+
+        .card-1 {
+            /* background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80); */
+            background-image: url(one.jpg);
+            background-size: cover;
         }
-        .card-3{
-           background-image: url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+
+        .card-1.tube.expanded{
+            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(one.jpg);
         }
-        .card-4{
-           background-image: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80);
-           background-size: cover;
+
+        .card-2 {
+            /* background-image: url(https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80); */
+            background-image: url(two.jpg);
+            background-size: cover;
         }
-        .card-5{
-           background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80);
-           background-size: cover;
+
+        .card-2.tube.expanded{
+            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(two.jpg);
         }
-        .card-6{
-           background-image: url(https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
-           background-size: cover;
+
+        .card-3 {
+            /* background-image: url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80); */
+            background-image: url(three.jpg);
+            background-size: cover;
+        }
+
+        .card-3.tube.expanded{
+            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(three.jpg);
+        }
+
+
+        .card-4 {
+            /* background-image: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80); */
+            background-image: url(four.jpg);
+            background-size: cover;
+        }
+
+        .card-4.tube.expanded{
+            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(four.jpg);
+        }
+
+        .card-5 {
+            background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80);
+            background-size: cover;
+        }
+
+        .card-6 {
+            background-image: url(https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+            background-size: cover;
         }
 
         .tube:hover {
             transform: translateY(-15px);
+            background-position-x: left !important;
         }
 
         .tubes {
@@ -125,7 +166,12 @@
         }
 
         /* Hover indicators */
-        .card-1::after, .card-2::after, .card-3::after, .card-4::after, .card-5::after, .card-6::after {
+        .card-1::after,
+        .card-2::after,
+        .card-3::after,
+        .card-4::after,
+        .card-5::after,
+        .card-6::after {
             content: "";
             position: absolute;
             height: 5px;
@@ -136,7 +182,7 @@
             transform: translateX(-50%);
             border-radius: 50%;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tube::before {
@@ -145,7 +191,7 @@
             color: white;
             font-size: 12px;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateY(-25px);
             width: 100px;
             left: 50%;
@@ -153,14 +199,33 @@
             text-align: center;
         }
 
-        .card-1:hover::before, .card-2:hover::before, .card-3:hover::before, .card-4:hover::before, .card-5:hover::before, .card-6:hover::before {
+        .transitionClass {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-1:hover::before,
+        .card-2:hover::before,
+        .card-3:hover::before,
+        .card-4:hover::before,
+        .card-5:hover::before,
+        .card-6:hover::before {
             opacity: 1;
             transform: translateX(-50%) translateY(-35px);
         }
 
-        .card-1:hover::after, .card-2:hover::after, .card-3:hover::after, .card-4:hover::after, .card-5:hover::after, .card-6:hover::after {
+        .card-1:hover::after,
+        .card-2:hover::after,
+        .card-3:hover::after,
+        .card-4:hover::after,
+        .card-5:hover::after,
+        .card-6:hover::after {
             opacity: 1;
             transform: translateX(-50%) scale(1);
+        }
+
+        .card-1.expanded:hover, .card-2.expanded:hover, .card-3.expanded:hover,
+        .card-4.expanded:hover, .card-5.expanded:hover, .card-6.expanded:hover {
+            transform: none;
         }
 
         /* Custom Cursor Styles */
@@ -197,99 +262,122 @@
             transform: translate(-50%, -50%) scale(4);
         }
 
-        /* Dialog Styles */
-        .dialog-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease;
-        }
-
-        .dialog-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .dialog {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            width: 80%;
-            max-width: 600px;
-            background: #1a1a1a;
+        /* Button Styles */
+        .hidBtn, .close {
+            display: none;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .dialog.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .dialog-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
+            border-radius: 5px;
             cursor: pointer;
-            width: 30px;
-            height: 30px;
+            font-size: 14px;
+            transition: all 0.5s ease;
+            position: absolute;
+            z-index: 1001;
+        }
+
+        .hidBtn:hover, .close:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Fullscreen state */
+        .tube.fullscreen {
+            position: fixed !important;
+            width: 100% !important;
+            height: 100vh !important;
+            left: 0 !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+            transform: none !important;
+            border-radius: 0 !important;
+            background-size: cover;
+            transition: all 0.7s ease;
+        }
+
+        .tube.expanded {
+            width: 600px;
+            height: 520px;
+            position: absolute;
+            z-index: 999;
+            left: -73%;
+            bottom: -25%;
+            top: -21%;
+            background-position: center;
+            transition: all 0.7s ease;
+        }
+
+        .tube.expanded .hidBtn {
+            display: block;
+            bottom: 20%;
+            left: 10%;
+        }
+
+        .tube.fullscreen .close {
+            display: block;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-style{
+            padding: 4em 3em;
+        }
+
+        .tube {
+        container-type: inline-size;
+        }
+
+        .prof-image{
+            background-image: url('one.jpg');
+            height: 400px;
+            width: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .min-card{
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background 0.3s ease;
+            justify-content: space-around;
+            gap: 10px;
         }
 
-        .dialog-close:hover {
-            background: rgba(255, 255, 255, 0.1);
+        @container (min-width: 0px) and (max-width: 100px) {
+            .min-card {
+                display: none;
+            }
+            .header-style{
+                display: none;
+            }
         }
 
-        .dialog h2 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            color: #4CAF50;
+        @container (min-width: 201px) and (max-width: 700px) {
+            .big {
+                display: none;
+            }
+
+            .min-card{
+                gap: 10px;
+            }
+
+            .header-style{
+                display: flex;
+            }
         }
 
-        .dialog p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
+        @container (min-width: 701px) and (max-width: 1200px) {
 
-        .dialog-content {
-            margin-top: 30px;
-        }
+            .small {
+                display: none;
+            }
 
-        .dialog-content h3 {
-            color: #4CAF50;
-            margin-bottom: 10px;
-        }
+            .min-card{
+                gap: 10em;
+            }
 
-        .dialog-content ul {
-            padding-left: 20px;
-        }
+            .header-style{
+                display: flex;
+            }
 
-        .dialog-content li {
-            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -301,7 +389,7 @@
                 <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
             </svg>
         </div>
-        
+
         <div class="cursor__ball cursor__ball--small">
             <svg height="10" width="10">
                 <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
@@ -312,34 +400,6 @@
     <!-- Preload images -->
     <div class="image-preloader" id="image-preloader"></div>
 
-    <!-- Dialog Overlay -->
-    <div class="dialog-overlay" id="dialogOverlay"></div>
-
-    <!-- Dialog -->
-    <div class="dialog" id="projectDialog">
-        <button class="dialog-close" id="dialogClose">&times;</button>
-        <h2>Project Showcase</h2>
-        <p>This is a detailed view of the project. You can include images, descriptions, technologies used, and more information about this amazing project.</p>
-        
-        <div class="dialog-content">
-            <h3>Project Details</h3>
-            <ul>
-                <li><strong>Client:</strong> Tech Innovations Inc.</li>
-                <li><strong>Duration:</strong> 6 months</li>
-                <li><strong>Technologies:</strong> React, Node.js, MongoDB</li>
-                <li><strong>Role:</strong> Lead Frontend Developer</li>
-            </ul>
-            
-            <h3>Key Features</h3>
-            <ul>
-                <li>Responsive design for all devices</li>
-                <li>Real-time data visualization</li>
-                <li>User authentication and authorization</li>
-                <li>Performance optimized for large datasets</li>
-            </ul>
-        </div>
-    </div>
-
     <section id="main-section">
         <!-- Background layers -->
         <div class="bg-layer bg-default"></div>
@@ -348,23 +408,131 @@
         <!-- Navbar -->
         <div class="navbar">
             <span>Name</span>
-            <span>
-                <span>one thing</span>
-                <span>two thing</span>
-                <span>three thing</span>
-            </span>
             <span>Contact</span>
         </div>
 
         <!-- Main Content -->
         <main class="main-content">
             <div class="tubes">
-                <span class="tube card-1" data-bg="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
-                <span class="tube card-2" data-bg="https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"></span>
-                <span class="tube card-3" data-bg="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
-                <span class="tube card-4" data-bg="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80"></span>
-                <span class="tube card-5" data-bg="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80"></span>
-                <span class="tube card-6" data-bg="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"></span>
+                <span class="tube card-1" style="background-position-x: right;"
+                    data-bg="one.jpg">
+                    <div class="header-style min-card">
+                        <div>
+                            <h1 class="title-font" style="margin-bottom: 1em;">About Me</h1>
+                            <span class="small">A web developer with a designer’s mindset—passionate about clean UIs, Gestalt principles, and exploring tomorrow’s tech today.</span>
+                            <span class="big">
+                                I’m a full-stack web application developer who believes great code should be matched by even better design. My approach blends technical precision with a deep understanding of UI/UX fundamentals, especially Gestalt principles like proximity, similarity, and continuity—ensuring every interface I build feels intuitive and harmonious.  
+
+                                I thrive on learning: whether it’s experimenting with a new JavaScript framework, diving into AI-assisted development tools, or studying emerging design systems. I’m not just building websites—I’m crafting experiences that solve real problems.  
+
+                                Outside the screen, I recharge through gardening (watching things grow is oddly like debugging!), playing guitar (patterns in music = patterns in code), and staying active with regular workouts.
+                            </span>
+                        </div>
+                        <div>
+                            <div class="prof-image"></div>
+                        </div>
+                    </div>
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-2" style="background-position-x: right;"
+                    data-bg="two.jpg">
+                    <div class="header-style">
+                        <div>
+                            <h1 class="title-font" style="margin-bottom: 1em;">Skills</h1>
+                            <span class="small">Frontend to backend, design to deployment—I build full web experiences with modern tools and user-first thinking.</span>
+                            <span class="big">
+                                • Frontend: HTML5, CSS3 (Flexbox, Grid, animations), JavaScript (ES6+, DOM manipulation), responsive & mobile-first design  
+                                • Backend: PHP, SQL (MySQL), RESTful APIs, server-side logic  
+                                • Design & UX: UI/UX design using Gestalt principles, wireframing, Figma, accessibility best practices  
+                                • Workflow & Tools: Git/GitHub, Agile/Scrum methodologies, VS Code, browser DevTools, cross-browser testing  
+                                • Mindset: Performance-optimized, user-centered, and always learning. I don’t just write code—I craft solutions that look great, work fast, and feel right.
+                            </span>
+                        </div>
+                    </div>
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-3"
+                    data-bg="three.jpg">
+                    <div class="header-style">
+                        <div>
+                            <h1 class="title-font" style="margin-bottom: 1em;">Work History</h1>
+                            <span class="small">Real-world experience building web apps in Agile teams—focused on clean code, smart design, and on-time delivery.</span>
+                            <span class="big">
+                                I’ve contributed to diverse web projects—from internal business tools to customer-facing applications—always with a dual focus on functionality and user experience.  
+
+                                In Agile environments, I’ve:  
+                                - Collaborated with designers and product owners to translate wireframes into pixel-perfect, responsive interfaces  
+                                - Developed PHP/JS applications with secure, scalable SQL backends  
+                                - Improved site performance by optimizing assets and database queries  
+                                - Participated in sprint planning, daily standups, and retrospectives to ensure smooth delivery  
+
+                                Every role has reinforced my belief: great software starts with understanding the user—not just the requirements.
+                            </span>
+                        </div>
+                    </div>                    
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-4"
+                    data-bg="four.jpg">
+                    <div class="header-style">
+                        <div>
+                            <h1 class="title-font" style="margin-bottom: 1em;">Hobbies</h1>
+                            <span class="small">When I’m off-duty: growing plants, strumming chords, and staying strong—because balance fuels creativity.</span>
+                            <span class="big">
+                                • 🌱 Gardening: There’s a quiet joy in nurturing plants—much like debugging code or refining a UI. Both require patience, observation, and care.  
+                                • 🎸 Guitar: Music keeps my creative side alive. Learning new songs teaches pattern recognition and discipline—skills that surprisingly translate to algorithmic thinking!  
+                                • 💪 Workouts: Physical energy fuels mental clarity. Whether it’s lifting weights or a morning run, staying active helps me stay sharp during long coding sessions.  
+
+                                These aren’t just pastimes—they’re part of my rhythm. They remind me that growth, expression, and resilience matter both in life and in building great software.
+                            </span>
+                        </div>
+                    </div>
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-5"
+                    data-bg="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80">
+                    <div class="header-style">
+                        <div>
+                            <h1 class="title-font" style="margin-bottom: 1em;">Contact Me</h1>
+                            <span class="small">Got a project, question, or just want to say hi? I’d love to hear from you!</span>
+                            <span class="big">
+                                    I’m always open to new opportunities, collaborations, or even a friendly chat about web dev, design systems, or the latest tech trends!  
+
+                                    📧 Email: [your.email@example.com]  
+                                    🔗 LinkedIn: [linkedin.com/in/yourname]  
+                                    🐙 GitHub: [github.com/yourusername]  
+
+                                    Feel free to reach out—I respond quickly and love connecting with fellow builders, designers, and innovators!
+                            </span>
+                        </div>
+                    </div>
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
+                <span class="tube card-6"
+                    data-bg="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <div class="header-style">
+                        <div>
+                            <h1 class="title-font" style="margin-bottom: 1em;">Projects</h1>
+                            <span class="small">A showcase of web apps I’ve built—where code meets design, and ideas become real.</span>
+                            <span class="big">
+                                Here you’ll find a curated selection of my personal and professional projects. Each one reflects my commitment to clean architecture, thoughtful UI, and user-centered problem solving.  
+
+                                From responsive dashboards built with HTML/CSS/JS to dynamic PHP-powered applications with SQL backends, every project applies core design principles (like Gestalt’s continuity and closure) to create seamless experiences.  
+
+                                Explore the live demos, peek at the code on GitHub, and see how I turn requirements into elegant, functional web applications.  
+
+                                New projects added regularly—because I never stop building!
+                            </span>
+                        </div> 
+                    </div>
+                    <button class="hidBtn">Know More</button>
+                    <button class="close">&times;</button>
+                </span>
             </div>
         </main>
 
@@ -375,10 +543,14 @@
     <script>
         // Image URLs mapped to cards
         const cardBackgrounds = {
-            'card-1': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            'card-2': 'https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-            'card-3': 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            'card-4': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80',
+            // 'card-1': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+            'card-1': 'one.jpg',
+            //'card-2': 'https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+            'card-2': 'two.jpg',
+            // 'card-3': 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+            'card-3': 'three.jpg',
+            // 'card-4': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80',
+            'card-4': 'four.jpg',
             'card-5': 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80',
             'card-6': 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
         };
@@ -401,31 +573,63 @@
         // Fade in background smoothly
         function fadeInBackground(imageUrl) {
             if (currentTimeout) clearTimeout(currentTimeout);
-            
+
             bgOverlay.style.backgroundImage = `url('${imageUrl.trim()}')`;
-            
+
             currentTimeout = setTimeout(() => {
-                bgOverlay.style.opacity = '0.2';
+                bgOverlay.style.opacity = '0.5';
             }, 100);
         }
 
         // Fade out background smoothly
         function fadeOutBackground() {
             if (currentTimeout) clearTimeout(currentTimeout);
-            
+
             bgOverlay.style.opacity = '0';
-            
+
             currentTimeout = setTimeout(() => {
                 bgOverlay.style.backgroundImage = '';
             }, 800);
         }
 
-        // Add event listeners to all tubes
+        // Card state management
+        function resetCardToDefault(card) {
+            card.classList.remove('expanded', 'fullscreen');
+            card.style.cssText = '';
+            card.classList.add('transitionClass');
+            const hidBtn = card.querySelector('.hidBtn');
+            const closeBtn = card.querySelector('.close');
+            hidBtn.style.display = 'none';
+            closeBtn.style.display = 'none';
+        }
+
+        function expandCard(card) {
+            card.classList.add('expanded');
+            const hidBtn = card.querySelector('.hidBtn');
+            hidBtn.style.display = 'block';
+        }
+
+        function makeCardFullscreen(card) {
+            card.classList.remove('expanded');
+            card.classList.add('fullscreen');
+            const hidBtn = card.querySelector('.hidBtn');
+            const closeBtn = card.querySelector('.close');
+            hidBtn.style.display = 'none';
+            closeBtn.style.display = 'block';
+        }
+
+        // Initialize
+        preloadImages();
+
+        // Add event listeners to all tubes for hover effects
         document.querySelectorAll('.tube').forEach(tube => {
             tube.addEventListener('mouseenter', () => {
                 const bgUrl = tube.getAttribute('data-bg');
+                console.log(tube.classList.contains('expanded'));
                 if (bgUrl) {
-                    fadeInBackground(bgUrl);
+                    if(tube.classList.contains('expanded') == false){
+                        fadeInBackground(bgUrl);
+                    }
                 }
             });
 
@@ -439,8 +643,39 @@
             });
         });
 
-        // Initialize
-        preloadImages();
+        // Add click event listeners to all cards
+        document.querySelectorAll('.tube').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking on buttons
+                if (e.target.classList.contains('hidBtn') || e.target.classList.contains('close')) {
+                    return;
+                }
+
+                if (this.classList.contains('expanded') || this.classList.contains('fullscreen')) {
+                    // Reset to default state
+                    document.querySelector('.prof-image').style.display = 'none';
+                    resetCardToDefault(this);
+                } else {
+                    // Expand card
+                    document.querySelector('.prof-image').style.display = 'block';
+                    expandCard(this);
+                }
+            });
+
+            // Add event listener to "Know More" button
+            const hidBtn = card.querySelector('.hidBtn');
+            hidBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                makeCardFullscreen(card);
+            });
+
+            // Add event listener to close button
+            const closeBtn = card.querySelector('.close');
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                resetCardToDefault(card);
+            });
+        });
 
         // Handle case when mouse leaves the entire section
         section.addEventListener('mouseleave', () => {
@@ -453,149 +688,107 @@
         });
 
         // Custom Cursor Implementation
-        class SmoothCustomCursor {
-            constructor() {
-                this.cursor = document.querySelector('.cursor');
-                this.bigBall = document.querySelector('.cursor__ball--big');
-                this.smallBall = document.querySelector('.cursor__ball--small');
-                this.hoverables = document.querySelectorAll('.tube, .navbar span, .footer span, a, .dialog-close');
-                
-                this.mouseX = 0;
-                this.mouseY = 0;
-                this.cursorX = 0;
-                this.cursorY = 0;
-                
-                this.isTicking = false;
-                this.rafId = null;
-                this.isAnimating = false;
-                
-                this.init();
-            }
-            
-            init() {
-                this.bindEvents();
-                this.startAnimation();
-            }
-            
-            bindEvents() {
-                document.addEventListener('mousemove', (e) => {
-                    this.mouseX = e.clientX;
-                    this.mouseY = e.clientY;
-                    
-                    if (!this.isTicking) {
-                        this.rafId = requestAnimationFrame(() => {
-                            this.updatePosition();
-                            this.isTicking = false;
-                        });
-                        this.isTicking = true;
-                    }
-                });
-                
-                this.hoverables.forEach(element => {
-                    element.addEventListener('mouseenter', () => {
-                        this.cursor.classList.add('cursor-hover');
-                    });
-                    
-                    element.addEventListener('mouseleave', () => {
-                        this.cursor.classList.remove('cursor-hover');
-                    });
-                });
-                
-                document.addEventListener('visibilitychange', () => {
-                    if (document.hidden) {
-                        this.stopAnimation();
-                    } else {
-                        this.startAnimation();
-                    }
-                });
-                
-                window.addEventListener('blur', () => {
-                    this.stopAnimation();
-                });
-                
-                window.addEventListener('focus', () => {
-                    this.startAnimation();
-                });
-            }
-            
-            updatePosition() {
-                this.cursorX += (this.mouseX - this.cursorX) * 0.15;
-                this.cursorY += (this.mouseY - this.cursorY) * 0.15;
-                
-                this.smallBall.style.transform = `translate(${this.mouseX - 5}px, ${this.mouseY - 5}px)`;
-            }
-            
-            animate() {
-                this.bigBall.style.transform = `translate(${this.cursorX - 15}px, ${this.cursorY - 15}px)`;
-                
-                this.rafId = requestAnimationFrame(() => this.animate());
-            }
-            
-            startAnimation() {
-                if (!this.isAnimating) {
-                    this.isAnimating = true;
-                    this.animate();
-                }
-            }
-            
-            stopAnimation() {
-                if (this.rafId) {
-                    cancelAnimationFrame(this.rafId);
-                    this.isAnimating = false;
-                }
-            }
-        }
-        
-        // Initialize cursor when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                new SmoothCustomCursor();
-            });
-        } else {
-            new SmoothCustomCursor();
-        }
+        // class SmoothCustomCursor {
+        //     constructor() {
+        //         this.cursor = document.querySelector('.cursor');
+        //         this.bigBall = document.querySelector('.cursor__ball--big');
+        //         this.smallBall = document.querySelector('.cursor__ball--small');
+        //         this.hoverables = document.querySelectorAll('.tube, .navbar span, .footer span, a, .hidBtn, .close');
 
-        document.querySelector('.card-1').addEventListener('click', function(){
+        //         this.mouseX = 0;
+        //         this.mouseY = 0;
+        //         this.cursorX = 0;
+        //         this.cursorY = 0;
 
-            if(this.classList.contains('click1')) {
-                // Collapse
-                this.classList.remove('click1');
-                this.style.width = '35px';
-                this.style.height = '';
-                this.style.position = 'initial';
-                this.style.left = "0%";
-                this.style.transition = '';
-                this.style.transition = 'all 0.7s ease';
-            } else {
-                // Expand
-                this.classList.add('click1');
-                this.style.width = '600px';
-                this.style.height = '520px';
-                this.style.left = "-81%";
-                this.style.left = "-25%";
-                this.style.position = 'absolute';
-                this.style.backgroundPositionX = "center";
-                this.style.transition = 'all 0.7s ease';
-            }
-            
-            document.querySelector('.click1').addEventListener('mouseenter', () => {
-                const bgUrl = document.querySelector('.click1').getAttribute('data-bg');
-                if (bgUrl) {
-                    fadeInBackground(bgUrl);
-                }
-            });
+        //         this.isTicking = false;
+        //         this.rafId = null;
+        //         this.isAnimating = false;
 
-            document.querySelector('.click1').addEventListener('mouseleave', () => {
-                setTimeout(() => {
-                    const hoveredCards = document.querySelectorAll('.tube:hover');
-                    if (hoveredCards.length === 0) {
-                        fadeOutBackground();
-                    }
-                }, 50);
-            });
+        //         this.init();
+        //     }
 
-        });
+        //     init() {
+        //         this.bindEvents();
+        //         this.startAnimation();
+        //     }
 
+        //     bindEvents() {
+        //         document.addEventListener('mousemove', (e) => {
+        //             this.mouseX = e.clientX;
+        //             this.mouseY = e.clientY;
+
+        //             if (!this.isTicking) {
+        //                 this.rafId = requestAnimationFrame(() => {
+        //                     this.updatePosition();
+        //                     this.isTicking = false;
+        //                 });
+        //                 this.isTicking = true;
+        //             }
+        //         });
+
+        //         this.hoverables.forEach(element => {
+        //             element.addEventListener('mouseenter', () => {
+        //                 this.cursor.classList.add('cursor-hover');
+        //             });
+
+        //             element.addEventListener('mouseleave', () => {
+        //                 this.cursor.classList.remove('cursor-hover');
+        //             });
+        //         });
+
+        //         document.addEventListener('visibilitychange', () => {
+        //             if (document.hidden) {
+        //                 this.stopAnimation();
+        //             } else {
+        //                 this.startAnimation();
+        //             }
+        //         });
+
+        //         window.addEventListener('blur', () => {
+        //             this.stopAnimation();
+        //         });
+
+        //         window.addEventListener('focus', () => {
+        //             this.startAnimation();
+        //         });
+        //     }
+
+        //     updatePosition() {
+        //         this.cursorX += (this.mouseX - this.cursorX) * 0.15;
+        //         this.cursorY += (this.mouseY - this.cursorY) * 0.15;
+
+        //         this.smallBall.style.transform = `translate(${this.mouseX - 5}px, ${this.mouseY - 5}px)`;
+        //     }
+
+        //     animate() {
+        //         this.bigBall.style.transform = `translate(${this.cursorX - 15}px, ${this.cursorY - 15}px)`;
+
+        //         this.rafId = requestAnimationFrame(() => this.animate());
+        //     }
+
+        //     startAnimation() {
+        //         if (!this.isAnimating) {
+        //             this.isAnimating = true;
+        //             this.animate();
+        //         }
+        //     }
+
+        //     stopAnimation() {
+        //         if (this.rafId) {
+        //             cancelAnimationFrame(this.rafId);
+        //             this.isAnimating = false;
+        //         }
+        //     }
+        // }
+
+        // // Initialize cursor when DOM is ready
+        // if (document.readyState === 'loading') {
+        //     document.addEventListener('DOMContentLoaded', () => {
+        //         new SmoothCustomCursor();
+        //     });
+        // } else {
+        //     new SmoothCustomCursor();
+        // }
     </script>
 </body>
 </html>
