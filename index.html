@@ -44,6 +44,10 @@
             height: 60px;
         }
 
+        .big, .small{
+            display: none;
+        }
+
         .main-content {
             display: flex;
             justify-content: center;
@@ -355,6 +359,10 @@
                 display: none;
             }
 
+            .small{
+                display: block;
+            }
+
             .min-card{
                 gap: 10px;
             }
@@ -364,7 +372,12 @@
             }
         }
 
-        @container (min-width: 701px) and (max-width: 1200px) {
+        @container (min-width: 701px) and (max-width: 1700px) {
+
+
+            .big{
+                display: block;
+            }
 
             .small {
                 display: none;
