@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <rect width="600" height="800" fill="#1E3D34"/>
+  <circle cx="300" cy="300" r="110" fill="#B3D6D3"/>
+  <path d="M120 800 C120 610 200 520 300 520 C400 520 480 610 480 800 Z" fill="#B3D6D3"/>
+  <text x="300" y="740" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#C9D64B">drop assets/hari-2.jpg here</text>
+</svg>

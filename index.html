@@ -1,925 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hari's Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Italiana&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .title-font{
-            font-family: "Italiana", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            color: white;
-            mix-blend-mode: difference;
-        }
-
-        body {
-            font-family: "Antic Didone", serif;
-            font-weight: 400;
-            font-style: normal;
-            background-color: #000;
-            transition: background-color 0.5s ease;
-            /* cursor: none; */
-            font-optical-sizing: auto;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        .navbar,
-        .footer {
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            height: 60px;
-        }
-
-        .big, .small{
-            display: none;
-        }
-
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-        }
-
-        .tube {
-            height: 350px;
-            width: 35px;
-            border-radius: 10px;
-            background-color: red;
-            transition: transform 0.5s ease;
-            /* cursor: none; */
-            position: relative;
-        }
-
-        .small, .big{
-            color: #efdcdc;
-        }
-
-        .card-1 {
-            /* background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80); */
-            background-image: url(one.jpg);
-            background-size: cover;
-        }
-
-        .card-1.tube.expanded{
-            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(one.jpg);
-        }
-
-        .card-2 {
-            /* background-image: url(https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80); */
-            background-image: url(two.jpg);
-            background-size: cover;
-        }
-
-        .card-2.tube.expanded{
-            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(two.jpg);
-        }
-
-        .card-3 {
-            /* background-image: url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80); */
-            background-image: url(three.jpg);
-            background-size: cover;
-        }
-
-        .card-3.tube.expanded{
-            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(three.jpg);
-        }
-
-
-        .card-4 {
-            /* background-image: url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80); */
-            background-image: url(four.jpg);
-            background-size: cover;
-        }
-
-        .card-4.tube.expanded{
-            background-image: linear-gradient(to left, rgb(131 131 131 / 37%), rgb(43 43 43 / 86%)), url(four.jpg);
-        }
-
-        .card-5 {
-            background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80);
-            background-size: cover;
-        }
-
-        .card-6 {
-            background-image: url(https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
-            background-size: cover;
-        }
-
-        .tube:hover {
-            transform: translateY(-15px);
-        }
-
-        .tubes {
-            position: relative;
-            display: flex;
-            gap: 15px;
-        }
-
-        /* Main Section Styling */
-        section {
-            display: grid;
-            grid-template-rows: 60px 1fr 60px;
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Background Layers */
-        .bg-layer {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .bg-default {
-            background-color: #000;
-            opacity: 1;
-        }
-
-        .bg-overlay {
-            opacity: 0;
-        }
-
-        /* Preloader (hidden) */
-        .image-preloader {
-            position: absolute;
-            width: 0;
-            height: 0;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        /* Hover indicators */
-        .card-1::after,
-        .card-2::after,
-        .card-3::after,
-        .card-4::after,
-        .card-5::after,
-        .card-6::after {
-            content: "";
-            position: absolute;
-            height: 5px;
-            width: 5px;
-            border: 2px solid #ffffff;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* .tube::before {
-            content: "View Project";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-25px);
-            text-align: center;
-        } */
-
-        .card-1::before{
-            content: "About Me";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-25px);
-            text-align: center;
-        }
-
-        .card-2::before{
-            content: "Skills";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-25px);
-            text-align: center;
-        }
-
-        .card-3::before{
-            content: "Work History";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-25px);
-            text-align: center;
-        }
-
-        .card-4::before{
-            content: "Hobbies";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-25px);
-            text-align: center;
-        }
-
-        .card-5::before{
-            content: "Contact Me";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-25px);
-            text-align: center;
-        }
-
-        .card-6::before{
-            content: "Projects";
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-25px);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-25px);
-            text-align: center;
-        }
-
-        .transitionClass {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-1:hover::before,
-        .card-2:hover::before,
-        .card-3:hover::before,
-        .card-4:hover::before,
-        .card-5:hover::before,
-        .card-6:hover::before {
-            opacity: 1;
-            transform: translateX(-50%) translateY(-35px);
-        }
-
-        .card-1:hover::after,
-        .card-2:hover::after,
-        .card-3:hover::after,
-        .card-4:hover::after,
-        .card-5:hover::after,
-        .card-6:hover::after {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
-        }
-
-        .card-1.expanded:hover, .card-2.expanded:hover, .card-3.expanded:hover,
-        .card-4.expanded:hover, .card-5.expanded:hover, .card-6.expanded:hover {
-            transform: none;
-        }
-
-        /* Custom Cursor Styles */
-        /* .cursor {
-            pointer-events: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 10000;
-        } */
-
-        /* .cursor__ball {
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
-            will-change: transform;
-        } */
-/* 
-        .cursor__ball circle {
-            fill: #f7f8fa;
-        }
-
-        .cursor__ball--big {
-            transition: transform 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-        }
-
-        .cursor__ball--small {
-            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .cursor-hover .cursor__ball--big {
-            transform: translate(-50%, -50%) scale(4);
-        } */
-
-        /* Button Styles */
-        .hidBtn, .close {
-            display: none;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.5s ease;
-            position: absolute;
-            z-index: 1001;
-        }
-
-        .hidBtn:hover, .close:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Fullscreen state */
-        .tube.fullscreen {
-            position: fixed !important;
-            width: 100% !important;
-            height: 100vh !important;
-            left: 0 !important;
-            top: 0 !important;
-            z-index: 1000 !important;
-            transform: none !important;
-            border-radius: 0 !important;
-            background-size: cover;
-            transition: all 0.7s ease;
-        }
-
-        .tube.expanded {
-            width: 600px;
-            height: 520px;
-            position: absolute;
-            z-index: 999;
-            left: -73%;
-            bottom: -25%;
-            top: -21%;
-            background-position: center;
-            transition: all 0.7s ease;
-        }
-
-        .tube.expanded .hidBtn {
-            display: block;
-            bottom: 20%;
-            left: 10%;
-        }
-
-        .tube.fullscreen .close {
-            display: block;
-            top: 20px;
-            right: 20px;
-        }
-
-        .header-style{
-            padding: 4em 3em;
-            background-image: linear-gradient(180deg, #000000, transparent);
-        }
-
-        .tube {
-        container-type: inline-size;
-        }
-
-        .prof-image{
-            background-image: url('two.png');
-            height: 400px;
-            width: 250px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .min-card{
-            display: flex;
-            justify-content: space-around;
-            gap: 10px;
-        }
-
-        @container (min-width: 0px) and (max-width: 100px) {
-            .min-card {
-                display: none;
-            }
-            .header-style{
-                display: none;
-            }
-        }
-
-        @container (min-width: 201px) and (max-width: 700px) {
-            .big {
-                display: none;
-            }
-
-            .small{
-                display: block;
-            }
-
-            .min-card{
-                gap: 10px;
-            }
-
-            .header-style{
-                display: flex;
-            }
-        }
-
-        @container (min-width: 701px) and (max-width: 1700px) {
-
-
-            .big{
-                display: block;
-                line-height: 2em;
-            }
-
-            .small {
-                display: none;
-            }
-
-            .min-card{
-                gap: 10em;
-            }
-
-            .header-style{
-                display: flex;
-                padding: 2rem;
-                /* background: rgba(0, 0, 0, 0.85); */
-                background: linear-gradient(180deg, rgb(0 0 0 / 81%) 0%, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 81%) 0%);
-                backdrop-filter: blur(2px);
-                color: #efdcdc;
-                position: sticky;
-                top: 69%;
-            }
-
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hariharan D — Full Stack & AI Developer</title>
+  <meta name="description" content="Hariharan D — Full Stack Developer specializing in AI-augmented development. Web apps that work, and AI that works for the web.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡️</text></svg>">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <!-- <div class="cursor">
-        <div class="cursor__ball cursor__ball--big">
-            <svg height="30" width="30">
-                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
-            </svg>
+
+  <!-- ══════════ NEWS TICKER ══════════ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <!-- set duplicated by JS -->
+      <div class="ticker__set">
+        <span>4 years of shipping web apps!</span>
+        <span>2,000+ customers served by my MCP chatbot.</span>
+        <span>Excel imports made 90% faster. You're welcome.</span>
+        <span>New site, same Hari.</span>
+        <span>Deployments 40% faster — CI/CD says hi.</span>
+        <span>98% accuracy. The other 2% builds character.</span>
+        <span>Currently deep-diving into RAG &amp; local LLMs.</span>
+        <span>Powered by coffee, guitar &amp; a small farm.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="header">
+    <a class="header__logo" href="#top">Hariharan&nbsp;D</a>
+    <nav class="header__nav">
+      <a href="#work">Work</a>
+      <a href="#services">Web</a>
+      <a href="#services">AI</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="header__burger" aria-label="Menu"><span></span><span></span></button>
+  </header>
+
+  <nav class="mobnav" aria-label="Mobile menu">
+    <button class="mobnav__close" aria-label="Close menu">✕</button>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main id="top">
+
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero">
+      <svg class="hero__arc" viewBox="0 0 1200 640" fill="none" aria-hidden="true">
+        <path d="M80 640 C 80 240, 480 40, 600 40 C 720 40, 1120 240, 1120 640" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 7"/>
+      </svg>
+
+      <div class="hero__badges" aria-hidden="true">
+        <div class="badge badge--code" style="--x:14%; --y:38%; --d:0s">{&nbsp;}</div>
+        <div class="badge badge--sketch" style="--x:27%; --y:18%; --d:.6s"><svg viewBox="0 0 40 40"><path d="M8 30 C14 12, 26 12, 32 26" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="32" cy="26" r="2.6" fill="currentColor"/></svg></div>
+        <div class="badge badge--terminal" style="--x:44%; --y:7%; --d:.2s"><svg viewBox="0 0 44 34"><rect x="1.5" y="1.5" width="41" height="31" rx="6" stroke="currentColor" stroke-width="2.4" fill="none"/><path d="M10 12 l7 5 -7 5 M21 23 h12" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="badge badge--dot" style="--x:60%; --y:6%; --d:.9s"><span></span></div>
+        <div class="badge badge--spark" style="--x:74%; --y:16%; --d:.4s"><svg viewBox="0 0 40 40"><path d="M20 4 v32 M4 20 h32 M9 9 l22 22 M31 9 L9 31" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+        <div class="badge badge--mono" style="--x:86%; --y:36%; --d:1.1s">Hh</div>
+      </div>
+
+      <div class="hero__type">
+        <div class="hero__line hero__line--1">
+          <h1 class="hero__word" data-reveal>Websites</h1>
+          <p class="hero__caption">I build web apps that work for people.</p>
         </div>
-
-        <div class="cursor__ball cursor__ball--small">
-            <svg height="10" width="10">
-                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
-            </svg>
+        <div class="hero__amp" data-reveal>&amp;</div>
+        <div class="hero__line hero__line--2">
+          <h2 class="hero__word" data-reveal>AI</h2>
+          <p class="hero__caption hero__caption--right">and AI that works for the web.</p>
         </div>
-    </div> -->
-
-    <!-- Preload images -->
-    <div class="image-preloader" id="image-preloader"></div>
-
-    <section id="main-section">
-        <!-- Background layers -->
-        <div class="bg-layer bg-default"></div>
-        <div class="bg-layer bg-overlay" id="bg-overlay"></div>
-
-        <!-- Navbar -->
-        <div class="navbar">
-            <!-- <span>Name</span>
-            <span>Contact</span> -->
-        </div>
-        <main class="main-content">
-            <div class="tubes">
-                <span class="tube card-1" style="background-position-x: right;"
-                    data-bg="one.jpg">
-                    <div class="header-style min-card">
-                        <div>
-                            <h1 class="title-font" style="margin-bottom: 1em;">About Me</h1>
-                            <span class="small">A web developer with a designer’s mindset—passionate about clean UIs, Gestalt principles, and exploring tomorrow’s tech today.</span>
-                            <span class="big">
-                                <div>
-                                    I’m a full-stack web application developer who believes great code should be matched by even better design. My approach blends technical precision with a deep understanding of UI/UX fundamentals, especially Gestalt principles like proximity, similarity, and continuity—ensuring every interface I build feels intuitive and harmonious.  
-                                </div>
-                                <div>
-                                    I thrive on learning: whether it’s experimenting with a new JavaScript framework, diving into AI-assisted development tools, or studying emerging design systems. I’m not just building websites—I’m crafting experiences that solve real problems.                                 </div>
-                                <div>
-                                    Outside the screen, I recharge through gardening (watching things grow is oddly like debugging!), playing guitar (patterns in music = patterns in code), and staying active with regular workouts.                                </div>
-                            </span>
-                        </div>
-                        <div>
-                            <div class="prof-image"></div>
-                        </div>
-                    </div>
-                    <button class="hidBtn">Know More</button>
-                    <button class="close">&times;</button>
-                </span>
-                <span class="tube card-2" style="background-position-x: right;"
-                    data-bg="two.jpg">
-                    <div class="header-style">
-                        <div>
-                            <h1 class="title-font" style="margin-bottom: 1em;">Skills</h1>
-                            <span class="small">Frontend to backend, design to deployment—I build full web experiences with modern tools and user-first thinking.</span>
-                            <span class="big">
-                                <ul>
-                                    <li>
-                                        Frontend: HTML5, CSS3 (Flexbox, Grid, animations), JavaScript (ES6+, DOM manipulation), responsive & mobile-first design                                     </li>
-                                    <li>
-                                        Backend: PHP, SQL (MySQL), RESTful APIs, server-side logic 
-                                    </li>
-                                    <li>
-                                        Design & UX: UI/UX design using Gestalt principles, wireframing, Figma, accessibility best practices  
-                                    </li>
-                                    <li>
-                                        Workflow & Tools: Git/GitHub, Agile/Scrum methodologies, VS Code, browser DevTools, cross-browser testing
-                                    </li>
-                                    <li>
-                                        Mindset: Performance-optimized, user-centered, and always learning. I don’t just write code—I craft solutions that look great, work fast, and feel right.
-                                    </li>
-                                </ul>
-                            </span>
-                        </div>
-                    </div>
-                    <button class="hidBtn">Know More</button>
-                    <button class="close">&times;</button>
-                </span>
-                <span class="tube card-3"
-                    data-bg="three.jpg">
-                    <div class="header-style">
-                        <div>
-                            <h1 class="title-font" style="margin-bottom: 1em;">Work History</h1>
-                            <span class="small">Real-world experience building web apps in Agile teams—focused on clean code, smart design, and on-time delivery.</span>
-                            <span class="big">
-                                <div>
-                                    I’ve contributed to diverse web projects—from internal business tools to customer-facing applications—always with a dual focus on functionality and user experience.  
-                                </div>
-                                <div>
-                                    In Agile environments, I’ve:  
-                                </div>
-                                <ul>
-                                    <li>Collaborated with designers and product owners to translate wireframes into pixel-perfect, responsive interfaces</li>
-                                    <li>Developed PHP/JS applications with secure, scalable SQL backends</li>
-                                    <li>Improved site performance by optimizing assets and database queries</li>
-                                    <li>Participated in sprint planning, daily standups, and retrospectives to ensure smooth delivery</li>
-                                    <li></li>
-                                </ul>                                
-                                <div>
-                                    Every role has reinforced my belief: great software starts with understanding the user—not just the requirements.
-                                </div>
-                            </span>
-                        </div>
-                    </div>                    
-                    <button class="hidBtn">Know More</button>
-                    <button class="close">&times;</button>
-                </span>
-                <span class="tube card-4"
-                    data-bg="four.jpg">
-                    <div class="header-style">
-                        <div>
-                            <h1 class="title-font" style="margin-bottom: 1em;">Hobbies</h1>
-                            <span class="small">When I’m off-duty: growing plants, strumming chords, and staying strong—because balance fuels creativity.</span>
-                            <span class="big">
-                                <ul>
-                                    <li>🌱 Gardening: There’s a quiet joy in nurturing plants—much like debugging code or refining a UI. Both require patience, observation, and care.</li>
-                                    <li>🎸 Guitar: Music keeps my creative side alive. Learning new songs teaches pattern recognition and discipline—skills that surprisingly translate to algorithmic thinking!</li>
-                                    <li>💪 Workouts: Physical energy fuels mental clarity. Whether it’s lifting weights or a morning run, staying active helps me stay sharp during long coding sessions.</li>
-                                </ul>
-                                <div>
-                                    These aren’t just pastimes—they’re part of my rhythm. They remind me that growth, expression, and resilience matter both in life and in building great software.
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                    <button class="hidBtn">Know More</button>
-                    <button class="close">&times;</button>
-                </span>
-                <span class="tube card-5"
-                    data-bg="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80">
-                    <div class="header-style">
-                        <div>
-                            <h1 class="title-font" style="margin-bottom: 1em;">Contact Me</h1>
-                            <span class="small">Got a project, question, or just want to say hi? I’d love to hear from you!</span>
-                            <span class="big">
-                                <div>
-                                    I’m always open to new opportunities, collaborations, or even a friendly chat about web dev, design systems, or the latest tech trends!  
-                                </div>
-
-                                <div>📧 Email: hariwebdev@outlook.com</div>
-                                <div>🔗 LinkedIn: <a href="www.linkedin.com/in/hari-haran-1004b9235">Hari's Id</a> </div>
-                                <div>🐙 GitHub: <a href="https://github.com/Web-DevSri/MyPortfolio">Hari's Github</a> </div>
-
-                                <div>
-                                    Feel free to reach out—I respond quickly and love connecting with fellow builders, designers, and innovators!
-                                </div>      
-                            </span>
-                        </div>
-                    </div>
-                    <button class="hidBtn">Know More</button>
-                    <button class="close">&times;</button>
-                </span>
-                <span class="tube card-6"
-                    data-bg="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
-                    <div class="header-style">
-                        <div>
-                            <h1 class="title-font" style="margin-bottom: 1em;">Projects</h1>
-                            <span class="small">A showcase of web apps I’ve built—where code meets design, and ideas become real.</span>
-                            <span class="big">
-                                <div>Here you’ll find a curated selection of my personal and professional projects. Each one reflects my commitment to clean architecture, thoughtful UI, and user-centered problem solving.  </div>
-                                <div>From responsive dashboards built with HTML/CSS/JS to dynamic PHP-powered applications with SQL backends, every project applies core design principles (like Gestalt’s continuity and closure) to create seamless experiences.  </div>
-                                <div>Explore the live demos, peek at the code on GitHub, and see how I turn requirements into elegant, functional web applications. </div>
-                                <div>New projects added regularly—because I never stop building!</div>
-                                                                
-                            </span>
-                        </div> 
-                    </div>
-                    <button class="hidBtn">Know More</button>
-                    <button class="close">&times;</button>
-                </span>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <div class="footer"></div>
+      </div>
     </section>
 
-    <script>
-        // Image URLs mapped to cards
-        const cardBackgrounds = {
-            // 'card-1': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            'card-1': 'one.jpg',
-            //'card-2': 'https://images.unsplash.com/photo-1682687220067-dced9a881b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-            'card-2': 'two.jpg',
-            // 'card-3': 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            'card-3': 'three.jpg',
-            // 'card-4': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1274&q=80',
-            'card-4': 'four.jpg',
-            'card-5': 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80',
-            'card-6': 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
-        };
+    <!-- ══════════ INTRO STATEMENT ══════════ -->
+    <section class="intro">
+      <h2 class="intro__text" data-split>Empowering products with smart, AI-augmented engineering — so businesses can grow.</h2>
+      <p class="intro__sub" data-reveal>Full Stack Developer · 4 years · Dextrasys, Trichy — from junior dev to Web &amp; AI developer, shipping measurable wins the whole way.</p>
+    </section>
 
-        // DOM Elements
-        const section = document.getElementById('main-section');
-        const bgOverlay = document.getElementById('bg-overlay');
-        const preloader = document.getElementById('image-preloader');
-        let currentTimeout = null;
+    <!-- ══════════ WORK CAROUSEL ══════════ -->
+    <section class="work" id="work">
+      <div class="work__rail">
+        <div class="work__set">
 
-        // Preload all images
-        function preloadImages() {
-            Object.values(cardBackgrounds).forEach(url => {
-                const img = new Image();
-                img.src = url.trim();
-                preloader.appendChild(img);
-            });
-        }
+          <article class="card">
+            <div class="card__cover card__cover--ink">
+              <span class="card__big">MCP</span>
+              <span class="card__small">natural&nbsp;language&nbsp;→&nbsp;app&nbsp;actions</span>
+            </div>
+            <div class="card__meta"><h3>MCP-Powered SaaS Chatbot</h3><span class="chip">AI</span></div>
+            <p class="card__desc">OpenAI + Model Context Protocol chatbot letting 2,000+ customers drive the platform in plain English.</p>
+          </article>
 
-        // Fade in background smoothly
-        function fadeInBackground(imageUrl) {
-            if (currentTimeout) clearTimeout(currentTimeout);
+          <article class="card">
+            <div class="card__cover card__cover--seafoam">
+              <span class="card__big">RAG</span>
+              <span class="card__small">ChromaDB&nbsp;·&nbsp;FAISS&nbsp;·&nbsp;vectors</span>
+            </div>
+            <div class="card__meta"><h3>Help-Center RAG Pipeline</h3><span class="chip">AI</span></div>
+            <p class="card__desc">Indexed an entire help center into a vector store — hallucinated answers, retrieved and retired.</p>
+          </article>
 
-            bgOverlay.style.backgroundImage = `url('${imageUrl.trim()}')`;
+          <article class="card">
+            <div class="card__cover card__cover--lime">
+              <span class="card__big">&lt;5s</span>
+              <span class="card__small">10,000+&nbsp;records</span>
+            </div>
+            <div class="card__meta"><h3>Bulk Excel Import Engine</h3><span class="chip">Web</span></div>
+            <p class="card__desc">Rebuilt the import path from 30–60 seconds down to under five. A 90%+ reduction.</p>
+          </article>
 
-            currentTimeout = setTimeout(() => {
-                bgOverlay.style.opacity = '0.5';
-            }, 100);
-        }
+          <article class="card">
+            <div class="card__cover card__cover--olive">
+              <span class="card__big">24/7</span>
+              <span class="card__small">98%&nbsp;accuracy&nbsp;·&nbsp;human&nbsp;handoff</span>
+            </div>
+            <div class="card__meta"><h3>AI Support Bot</h3><span class="chip">AI</span></div>
+            <p class="card__desc">Always-on support handling 10–15 requests weekly, gracefully escalating the edge cases.</p>
+          </article>
 
-        // Fade out background smoothly
-        function fadeOutBackground() {
-            if (currentTimeout) clearTimeout(currentTimeout);
+          <article class="card">
+            <div class="card__cover card__cover--cream">
+              <span class="card__big">+15%</span>
+              <span class="card__small">10+&nbsp;core&nbsp;pages&nbsp;revamped</span>
+            </div>
+            <div class="card__meta"><h3>Full UI/UX Revamp</h3><span class="chip">Web</span></div>
+            <p class="card__desc">Redesigned the core product surface — and feature usage climbed 15%.</p>
+          </article>
 
-            bgOverlay.style.opacity = '0';
+          <article class="card">
+            <div class="card__cover card__cover--ink2">
+              <span class="card__big">Mind<br>Gate</span>
+              <span class="card__small">live&nbsp;on&nbsp;Google&nbsp;Play</span>
+            </div>
+            <div class="card__meta"><h3>MindGate — Screen Time App</h3><span class="chip">App</span></div>
+            <p class="card__desc">Behavioral nudges + usage analytics to make healthy digital habits engaging, not restrictive.</p>
+          </article>
 
-            currentTimeout = setTimeout(() => {
-                bgOverlay.style.backgroundImage = '';
-            }, 800);
-        }
+          <article class="card">
+            <div class="card__cover card__cover--seafoam2">
+              <span class="card__big">Wapp<br>AI</span>
+              <span class="card__small">Ollama&nbsp;·&nbsp;Node.js&nbsp;·&nbsp;local&nbsp;LLMs</span>
+            </div>
+            <div class="card__meta"><h3>WhatsApp AI Chatbot</h3><span class="chip">In&nbsp;Progress</span></div>
+            <p class="card__desc">Autonomous multi-turn agent on locally-hosted LLMs — zero cloud API costs.</p>
+          </article>
 
-        // Card state management
-        function resetCardToDefault(card) {
-            card.classList.remove('expanded', 'fullscreen');
-            card.style.cssText = '';
-            card.classList.add('transitionClass');
-            const hidBtn = card.querySelector('.hidBtn');
-            const closeBtn = card.querySelector('.close');
-            hidBtn.style.display = 'none';
-            closeBtn.style.display = 'none';
-        }
+        </div>
+      </div>
+    </section>
 
-        function expandCard(card) {
-            card.classList.add('expanded');
-            const hidBtn = card.querySelector('.hidBtn');
-            hidBtn.style.display = 'block';
-        }
+    <!-- ══════════ DARK QUOTE / ABOUT ══════════ -->
+    <section class="dark" id="about">
+      <div class="dark__inner">
+        <h2 class="dark__quote" data-split>Good code gets me hired — but curiosity, character, and shipped products keep me in business.</h2>
 
-        function makeCardFullscreen(card) {
-            card.classList.remove('expanded');
-            card.classList.add('fullscreen');
-            const hidBtn = card.querySelector('.hidBtn');
-            const closeBtn = card.querySelector('.close');
-            hidBtn.style.display = 'none';
-            closeBtn.style.display = 'block';
-        }
+        <div class="about">
+          <figure class="about__photo" data-reveal>
+            <img src="assets/hari-2.jpg" alt="Hariharan D" onerror="this.onerror=null;this.src='assets/placeholder-2.svg'">
+            <figcaption>Hariharan D · Trichy, India</figcaption>
+          </figure>
+          <div class="about__body">
+            <p class="about__lede" data-reveal>I'm Hari — a full stack developer who grew from junior dev to Web &amp; AI developer at Dextrasys, and never stopped being curious.</p>
+            <p data-reveal>These days I champion AI-augmented workflows for a team of ten, build MCP servers and RAG pipelines, and still care deeply about the unglamorous stuff: fast imports, reliable deploys, interfaces people actually use. Off-screen you'll find me practicing guitar or managing a small farm — both excellent teachers of patience and long-term planning.</p>
+            <div class="stats" data-reveal>
+              <div class="stat"><strong data-count="4">0</strong><span>years shipping</span></div>
+              <div class="stat"><strong data-count="2000">0</strong><span>chatbot users</span></div>
+              <div class="stat"><strong data-count="90">0</strong><span>% faster imports</span></div>
+              <div class="stat"><strong data-count="98">0</strong><span>% bot accuracy</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Initialize
-        preloadImages();
+    <!-- ══════════ SKILLS MARQUEE ══════════ -->
+    <section class="skills">
+      <h3 class="skills__title" data-split>Technologies I've helped ship.</h3>
+      <div class="skills__rows">
+        <div class="mrow" data-dir="1"><div class="mrow__set"><span>JavaScript</span><i>✳</i><span>Angular</span><i>✳</i><span>Node.js</span><i>✳</i><span>PHP</span><i>✳</i><span>CodeIgniter</span><i>✳</i><span>SQL</span><i>✳</i><span>jQuery</span><i>✳</i><span>HTML5</span><i>✳</i><span>CSS3</span><i>✳</i></div></div>
+        <div class="mrow" data-dir="-1"><div class="mrow__set"><span>MCP</span><i>✳</i><span>OpenAI API</span><i>✳</i><span>Ollama</span><i>✳</i><span>RAG</span><i>✳</i><span>ChromaDB</span><i>✳</i><span>FAISS</span><i>✳</i><span>Vector Stores</span><i>✳</i><span>Prompt Engineering</span><i>✳</i></div></div>
+        <div class="mrow" data-dir="1"><div class="mrow__set"><span>REST APIs</span><i>✳</i><span>GCP</span><i>✳</i><span>App Scripts</span><i>✳</i><span>Meta Graph API</span><i>✳</i><span>Figma</span><i>✳</i><span>Playwright</span><i>✳</i><span>Git</span><i>✳</i><span>CI/CD</span><i>✳</i><span>Agile</span><i>✳</i></div></div>
+      </div>
+    </section>
 
-        // Add event listeners to all tubes for hover effects
-        document.querySelectorAll('.tube').forEach(tube => {
-            tube.addEventListener('mouseenter', () => {
-                const bgUrl = tube.getAttribute('data-bg');
-                console.log(tube.classList.contains('expanded'));
-                if (bgUrl) {
-                    if(tube.classList.contains('expanded') == false){
-                        fadeInBackground(bgUrl);
-                    }
-                }
-            });
+    <!-- ══════════ SERVICES SPLIT ══════════ -->
+    <section class="services" id="services">
+      <p class="services__label" data-reveal>What I do</p>
+      <div class="services__grid">
+        <div class="svc" data-reveal>
+          <h3 class="svc__word">Web</h3>
+          <p>End-to-end product engineering — responsive Angular frontends, Node.js &amp; PHP backends, REST API design, Playwright test coverage, and CI/CD pipelines that make releases boring (the good kind).</p>
+          <ul>
+            <li>Full-stack web applications</li>
+            <li>REST API design &amp; integrations</li>
+            <li>UI/UX revamps that move metrics</li>
+            <li>Pipelines, testing &amp; code review</li>
+          </ul>
+        </div>
+        <div class="svc svc--ai" data-reveal>
+          <h3 class="svc__word"><em>AI</em></h3>
+          <p>AI features that ship to real customers — MCP servers, RAG pipelines over your own knowledge base, chatbots with human handoff, and AI-augmented dev workflows your whole team will adopt.</p>
+          <ul>
+            <li>MCP server &amp; chatbot development</li>
+            <li>RAG pipelines &amp; vector stores</li>
+            <li>OpenAI &amp; local LLMs (Ollama)</li>
+            <li>AI-augmented team workflows</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            tube.addEventListener('mouseleave', () => {
-                setTimeout(() => {
-                    const hoveredCards = document.querySelectorAll('.tube:hover');
-                    if (hoveredCards.length === 0) {
-                        fadeOutBackground();
-                    }
-                }, 50);
-            });
-        });
+    <!-- ══════════ EXPERIENCE ══════════ -->
+    <section class="exp">
+      <h3 class="exp__title" data-split>The road so far.</h3>
+      <ol class="exp__list">
+        <li class="exp__item" data-reveal>
+          <span class="exp__when">May 2026 — Present</span>
+          <div>
+            <h4>Web Application Developer — Web &amp; AI</h4>
+            <p>Dextrasys, Trichy · MCP chatbot for 2,000+ customers, RAG pipeline, 24/7 support bot at 98% accuracy, AI workflows adopted by a team of 10.</p>
+          </div>
+        </li>
+        <li class="exp__item" data-reveal>
+          <span class="exp__when">Oct 2023 — Apr 2026</span>
+          <div>
+            <h4>Application Developer</h4>
+            <p>Dextrasys, Trichy · 90% faster Excel imports, 40% faster CI/CD, UI/UX revamp (+15% usage), Meta Ads &amp; Graph API integrations, Playwright coverage, led code reviews.</p>
+          </div>
+        </li>
+        <li class="exp__item" data-reveal>
+          <span class="exp__when">Oct 2022 — Sep 2023</span>
+          <div>
+            <h4>Junior Frontend Developer</h4>
+            <p>Dextrasys, Trichy · Frontend features in the CodeIgniter stack, Figma-to-code, Git &amp; Agile sprints.</p>
+          </div>
+        </li>
+        <li class="exp__item" data-reveal>
+          <span class="exp__when">2017 — 2022</span>
+          <div>
+            <h4>MCA — MIT (CDE), Chennai · BCA — Jamal Mohamed College</h4>
+            <p>Plus: Google certification — “Use AI as a Creative or Expert Partner.”</p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-        // Add click event listeners to all cards
-        document.querySelectorAll('.tube').forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Don't trigger if clicking on buttons
-                if (e.target.classList.contains('hidBtn') || e.target.classList.contains('close')) {
-                    return;
-                }
+    <!-- ══════════ FOOTER CTA ══════════ -->
+    <footer class="footer" id="contact">
+      <div class="footer__inner">
+        <figure class="footer__photo" data-reveal>
+          <img src="assets/hari-1.jpg" alt="Hariharan D smiling" onerror="this.onerror=null;this.src='assets/placeholder-1.svg'">
+        </figure>
+        <h2 class="footer__cta" data-split>How can I help?</h2>
+        <a class="footer__mail roll" href="mailto:hariwebdev@outlook.com" data-reveal><span data-text="hariwebdev@outlook.com">hariwebdev@outlook.com</span></a>
+        <div class="footer__links" data-reveal>
+          <a class="pill" href="https://github.com/web-devsri" target="_blank" rel="noopener">GitHub</a>
+          <a class="pill" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill" href="tel:+916379064746">+91 63790 64746</a>
+        </div>
+        <div class="footer__base">
+          <span>©2026 Hariharan D. All rights reserved.</span>
+          <span>Trichy, India · Built with care (and a little AI).</span>
+        </div>
+      </div>
+    </footer>
 
-                if (this.classList.contains('expanded') || this.classList.contains('fullscreen')) {
-                    // Reset to default state
-                    document.querySelector('.prof-image').style.display = 'none';
-                    resetCardToDefault(this);
-                } else {
-                    // Expand card
-                    document.querySelector('.prof-image').style.display = 'block';
-                    expandCard(this);
-                }
-            });
+  </main>
 
-            // Add event listener to "Know More" button
-            const hidBtn = card.querySelector('.hidBtn');
-            hidBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                makeCardFullscreen(card);
-            });
-
-            // Add event listener to close button
-            const closeBtn = card.querySelector('.close');
-            closeBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                resetCardToDefault(card);
-            });
-        });
-
-        // Handle case when mouse leaves the entire section
-        section.addEventListener('mouseleave', () => {
-            setTimeout(() => {
-                const hoveredCards = document.querySelectorAll('.tube:hover');
-                if (hoveredCards.length === 0) {
-                    fadeOutBackground();
-                }
-            }, 50);
-        });
-
-        // Custom Cursor Implementation
-        // class SmoothCustomCursor {
-        //     constructor() {
-        //         this.cursor = document.querySelector('.cursor');
-        //         this.bigBall = document.querySelector('.cursor__ball--big');
-        //         this.smallBall = document.querySelector('.cursor__ball--small');
-        //         this.hoverables = document.querySelectorAll('.tube, .navbar span, .footer span, a, .hidBtn, .close');
-
-        //         this.mouseX = 0;
-        //         this.mouseY = 0;
-        //         this.cursorX = 0;
-        //         this.cursorY = 0;
-
-        //         this.isTicking = false;
-        //         this.rafId = null;
-        //         this.isAnimating = false;
-
-        //         this.init();
-        //     }
-
-        //     init() {
-        //         this.bindEvents();
-        //         this.startAnimation();
-        //     }
-
-        //     bindEvents() {
-        //         document.addEventListener('mousemove', (e) => {
-        //             this.mouseX = e.clientX;
-        //             this.mouseY = e.clientY;
-
-        //             if (!this.isTicking) {
-        //                 this.rafId = requestAnimationFrame(() => {
-        //                     this.updatePosition();
-        //                     this.isTicking = false;
-        //                 });
-        //                 this.isTicking = true;
-        //             }
-        //         });
-
-        //         this.hoverables.forEach(element => {
-        //             element.addEventListener('mouseenter', () => {
-        //                 this.cursor.classList.add('cursor-hover');
-        //             });
-
-        //             element.addEventListener('mouseleave', () => {
-        //                 this.cursor.classList.remove('cursor-hover');
-        //             });
-        //         });
-
-        //         document.addEventListener('visibilitychange', () => {
-        //             if (document.hidden) {
-        //                 this.stopAnimation();
-        //             } else {
-        //                 this.startAnimation();
-        //             }
-        //         });
-
-        //         window.addEventListener('blur', () => {
-        //             this.stopAnimation();
-        //         });
-
-        //         window.addEventListener('focus', () => {
-        //             this.startAnimation();
-        //         });
-        //     }
-
-        //     updatePosition() {
-        //         this.cursorX += (this.mouseX - this.cursorX) * 0.15;
-        //         this.cursorY += (this.mouseY - this.cursorY) * 0.15;
-
-        //         this.smallBall.style.transform = `translate(${this.mouseX - 5}px, ${this.mouseY - 5}px)`;
-        //     }
-
-        //     animate() {
-        //         this.bigBall.style.transform = `translate(${this.cursorX - 15}px, ${this.cursorY - 15}px)`;
-
-        //         this.rafId = requestAnimationFrame(() => this.animate());
-        //     }
-
-        //     startAnimation() {
-        //         if (!this.isAnimating) {
-        //             this.isAnimating = true;
-        //             this.animate();
-        //         }
-        //     }
-
-        //     stopAnimation() {
-        //         if (this.rafId) {
-        //             cancelAnimationFrame(this.rafId);
-        //             this.isAnimating = false;
-        //         }
-        //     }
-        // }
-
-        // // Initialize cursor when DOM is ready
-        // if (document.readyState === 'loading') {
-        //     document.addEventListener('DOMContentLoaded', () => {
-        //         new SmoothCustomCursor();
-        //     });
-        // } else {
-        //     new SmoothCustomCursor();
-        // }
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
-
 </html>
-
-
